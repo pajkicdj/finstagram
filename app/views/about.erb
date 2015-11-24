@@ -1,0 +1,17 @@
+<!--no <doctype blah blah! it'll be a pain if you had to repeat it on every single page every page is going to have a footer or header
+don't have to put it 10 times on every page. you need a layout file which will include all this repetitive stuff-->
+
+<h1>About <%= @company_name %>! </h1>
+
+ <!--comments in erb files are html only :'( bye bye beautiful hashes ##### -->
+
+<% @employees.each do |employee| %>
+  <p><%= employee[:name] %></p>
+  <% if employee[:years] >= 5 %>
+    Special Employee
+  <% else %>
+    Unspecial  <!-- don't need quotes!! -->
+  <% end %>
+  
+<% end %>
+

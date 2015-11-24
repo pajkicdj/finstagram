@@ -1,0 +1,51 @@
+<!doctype html>
+
+<html>
+  <head>
+    <link rel="stylesheet" href="/stylesheets/normalize.css">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto+Condensed:300italic,700italic,700,300">
+    <link rel="stylesheet" href="/stylesheets/lib.css">
+    <link rel="stylesheet" href="/stylesheets/app.css"> 
+    <!-- link tags link this page to another page. different than the <a></a> link tags-->
+    <title>Finstagram</title>
+  </head>
+  <body>
+    <header>
+      <h1>
+        <a href="/">Finstagram</a>
+      </h1>
+      <div class ="login-info">
+        <% if current_user %>
+          <div class = "username_header">
+            <%= current_user.username %>
+          </div>
+          <div class = "logout_button">
+            <a href="/logout">Logout</a>
+          </div>
+        <% else %>
+          <div class = "login_button">
+            <a href="/login">Login</a>
+          </div>
+          <div class = "signup_button">
+            <a href="/signup">Signup</a>
+          </div>
+        <% end %>
+      </div>
+    </header>
+    <main role="main">
+    
+    <!-- replace this area with whatever needs to be in this page-->
+        <%= yield %> <!-- this is what points to the erb: about thing and then replaces it with whatever is there-->
+    </main>
+    <footer>
+      <div class = "footer_info">
+        <div class = "about_button">
+          <a href="/about">About Us</a>
+        </div>
+        <div class = "contact_button">
+          <a href="/contact">Contact Us</a>
+        </div>
+      </div>
+    </footer>
+  </html>
+</body>
